@@ -2,7 +2,7 @@
 
 /********************************************************************************************
  *                                                                                          *
- * Plese read the following tutorial before implementing tasks:                             *
+ * Please read the following tutorial before implementing tasks:                             *
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String  *
  *                                                                                          *
  ********************************************************************************************/
@@ -181,7 +181,7 @@ function extractEmails(str) {
 
 /**
  * Returns the string representation of rectangle with specified width and height
- * using pseudograhic chars
+ * using pseudographic chars
  *
  * @param {number} width
  * @param {number} height
@@ -273,9 +273,9 @@ function isString(value) {
 
 
 /**
- * Returns playid card id.
+ * Returns played card id.
  * 
- * Playing cards inittial deck inclides the cards in the following order:
+ * Playing cards initial deck includes the cards in the following order:
  * 
  *  'A♣','2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣',
  *  'A♦','2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦',

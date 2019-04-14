@@ -33,27 +33,19 @@
  *
  */
 function* get99BottlesOfBeer() {
-    throw new Error('Not implemented');
-//     let index = 99;
-
-//     while(true)
-//       yield index--;
-// }
-  
+    let index = 99,
     
-    // let songList = [];
-    // for (i = 99; i > 0; i--)  {
-    //     if (i > 1) {
-    //         songList.push(`${i} bottles of beer on the wall, ${i} bottles of beer.`);
-    //         songList.push(`Take one down and pass it around, ${i-1} bottles of beer on the wall.`);
-    //     } else {
-    //         songList.push(`${i} bottle of beer on the wall, ${i} bottle of beer.`);
-    //         songList.push('Take one down and pass it around, no more bottles of beer on the wall.');
-    //         songList.push('No more bottles of beer on the wall, no more bottles of beer.');
-    //         songList.push('Go to the store and buy some more, 99 bottles of beer on the wall.');
-    //     }
-    // }
-    // return songList;
+    end = index => index > 1 ? 's' : '',
+    bottle = index => index > 0 ? `${index} bottle${end(index)}` : 'no more bottles';
+
+    while (index >= 1) {
+        yield `${bottle(index)} of beer on the wall, ${bottle(index)} of beer.`
+        yield `Take one down and pass it around, ${bottle(index - 1)} of beer on the wall.`
+        index--;
+    }
+    yield `No more bottles of beer on the wall, no more bottles of beer.`;
+    yield `Go to the store and buy some more, 99 bottles of beer on the wall.`;
+
 }
 
 

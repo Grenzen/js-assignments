@@ -118,7 +118,7 @@ function removeFalsyValues(arr) {
 }
 
 /**
- * Returns the array of useprcase strings from the specified array
+ * Returns the array of uppercase strings from the specified array
  * 
  * @param {array} arr
  * @return {array}
@@ -196,7 +196,7 @@ function getTail(arr, n) {
 
 
 /**
- * Returns CSV represebtation of two-dimentional numeric array.
+ * Returns CSV representation of two-dimentional numeric array.
  * https://en.wikipedia.org/wiki/Comma-separated_values
  * 
  * @param {array} arr
@@ -496,7 +496,7 @@ function sortCitiesArray(arr) {
 }
 
 /**
- * Creates an indentity matrix of the specified size
+ * Creates an identity matrix of the specified size
  * 
  * @param {number} n
  * @return {array}
@@ -591,7 +591,21 @@ function distinct(arr) {
  *   }
  */
 function group(array, keySelector, valueSelector) {
-   throw new Error('Not implemented');
+   let keys = array.map(keySelector),
+       values = array.map(valueSelector),
+       map = new Map();
+       
+   keys.filter((elem, index) => {
+      if (!map.has(elem)) {
+         map.set(elem, [values[index]]);
+      } else {
+         let value = map.get(elem);
+         value.push(values[index]);
+         map.set(elem, value);
+      }
+   });
+   return map;
+
 }
 
 
@@ -607,8 +621,7 @@ function group(array, keySelector, valueSelector) {
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
 function selectMany(arr, childrenSelector) {
-   throw new Error('Not implemented');
-   // return arr.apply(this, childrenSelector);
+   return arr.map(childrenSelector).reduce((acc, val) => acc.concat(val));
 }
 
 
@@ -625,7 +638,7 @@ function selectMany(arr, childrenSelector) {
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
 function getElementByIndexes(arr, indexes) {
-   throw new Error('Not implemented');
+   return indexes.reduce((acc, curr) => acc[curr], arr);
 }
 
 
@@ -648,7 +661,7 @@ function getElementByIndexes(arr, indexes) {
  * 
  */
 function swapHeadAndTail(arr) {
-   if (arr.length <= 1) return arr;
+   if (arr.length <= 1) { return arr; }
  
    let leftArr = arr.slice(0, Math.floor(arr.length / 2));
    let rightArr = arr.slice(Math.ceil(arr.length / 2));

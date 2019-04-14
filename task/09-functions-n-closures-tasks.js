@@ -2,7 +2,7 @@
 
 /**********************************************************************************************
  *                                                                                            *
- * Plese read the following tutorial before implementing tasks:                               *
+ * Please read the following tutorial before implementing tasks:                               *
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions                    *
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function  *
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments      *
@@ -52,7 +52,9 @@ function getComposition(...args) {
  *
  */
 function getPowerFunction(exponent) {
-    throw new Error('Not implemented');
+    return (function(n) {
+        return Math.pow(n, exponent);
+    });
 }
 
 
@@ -89,7 +91,16 @@ function getPolynom() {
  *   memoizer() => the same random number  (next run, returns the previous cached result)
  */
 function memoize(func) {
-    throw new Error('Not implemented');
+    let cache = {};
+    
+    return function () {
+        let key = JSON.stringify(arguments);
+        
+        if (!(key in cache)) {
+            cache[key] = func.apply(this, arguments);
+        }
+        return cache[key];
+    }
 }
 
 
@@ -117,7 +128,7 @@ function retry(func, attempts) {
  * Returns the logging wrapper for the specified method,
  * Logger has to log the start and end of calling the specified function.
  * Logger has to log the arguments of invoked function.
- * The fromat of output log is:
+ * The format of output log is:
  * <function name>(<arg1>, <arg2>,...,<argN>) starts
  * <function name>(<arg1>, <arg2>,...,<argN>) ends
  *
@@ -155,7 +166,15 @@ function logger(func, logFunc) {
  *   partialUsingArguments(fn, 'a','b','c','d')() => 'abcd'
  */
 function partialUsingArguments(fn) {
-    throw new Error('Not implemented');
+
+    let arr = Array.prototype.slice.call(arguments, 1);
+
+    let res = function () {
+        let brr = Array.prototype.slice.call(arguments);
+        return fn.apply(this, arr.concat(brr));
+    }
+    return res;
+
 }
 
 
@@ -176,7 +195,11 @@ function partialUsingArguments(fn) {
  *   getId10() => 11
  */
 function getIdGeneratorFunction(startFrom) {
-    throw new Error('Not implemented');
+    let currId = startFrom;
+
+    return function() {
+        return currId++;
+    }
 }
 
 

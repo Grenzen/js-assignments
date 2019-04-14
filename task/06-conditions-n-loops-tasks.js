@@ -2,7 +2,7 @@
 
 /**************************************************************************************************
  *                                                                                                *
- * Plese read the following tutorial before implementing tasks:                                   *
+ * Please read the following tutorial before implementing tasks:                                   *
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling  *
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration              *
  *                                                                                                *
@@ -384,31 +384,12 @@ function rooting(b, result) {
  */
 function isBracketsBalanced(str) {
     throw new Error('Not implemented');
-   
-    // let stack = [];
-
-    // if (str === '') {
-    //     return true;
-    // } else {
-    //     let len = str.length;
-        
-    //     for (let i = 0; i < len; i++ ) {
-    //         if(str[i] === "{" || str[i] === "(" || str[i] === "[" || str[i] === "<") {
-    //             stack.push(str[i]);
-    //         } else if (str[i] === "}" || str[i] === ")" || str[i] === "]" || str[i] === ">") {
-
-    //             if (stack.length !== 0 && ) {
-    //                 return false;
-    //             } else if () {}
-    //         }
-    //     }
-    // }
 }
 
 
 /**
  * Returns the human readable string of time period specified by the start and end time.
- * The result string should be constrcuted using the folliwing rules:
+ * The result string should be constructed using the following rules:
  *
  * ---------------------------------------------------------------------
  *   Difference                 |  Result
@@ -438,7 +419,33 @@ function isBracketsBalanced(str) {
  *
  */
 function timespanToHumanString(startDate, endDate) {
-    throw new Error('Not implemented');
+    
+    let firstDate = new Date(startDate);
+    let secondDate = new Date(endDate);
+    
+    const difference = (secondDate.getTime() - firstDate.getTime()) / 1000;
+    return difference >= 0 && difference <= 45 ? 'a few seconds ago' : 
+            difference > 45 && difference <= 90 ? 'a minute ago' : 
+            difference > 90 && difference <= 120 ? '2 minutes ago' : 
+            difference > 120 && difference <= 360 ? '5 minutes ago' : 
+            difference > 90 && difference <= 2700 ? '45 minutes ago' :
+            difference > 2700 && difference <= 5400 ? 'an hour ago' :
+            difference > 5400 && difference <= 7200 ? '2 hours ago' :
+            difference > 7200 && difference <= 16200 ? '4 hours ago' :
+            difference > 16200 && difference <= 18000 ? '5 hours ago' :
+            difference > 18000 && difference <= 79200 ? '22 hours ago' :
+            difference > 79200 && difference <= 129600 ? 'a day ago' :
+            difference > 129600 && difference <= 172800 ? '2 days ago' :
+            difference > 172800 && difference <= 388800 ? '4 days ago' :
+            difference > 388800 && difference <= 2160000 ? '25 days ago' :
+            difference > 2160000 && difference <= 3888000 ? 'a month ago' :
+            difference > 2628000 && difference <= 5256000 ? '2 months ago' :     
+            difference > 5256000 && difference <= 12092400 ? '5 months ago' :
+            difference > 12092400 && difference <= 29721600 ? '11 months ago' :
+            difference > 2.981e+7 && difference <= 4.709e+7 ? 'a year ago' :
+            difference > 4.709e+7 && difference <= 477270000.001 ? '15 years ago' :  null;  
+            ;
+
 }
 
 
@@ -467,7 +474,7 @@ function toNaryString(num, n) {
 
 
 /**
- * Returns the commom directory path for specified array of full filenames.
+ * Returns the common directory path for specified array of full filenames.
  *
  * @param {array} pathes
  * @return {string}
@@ -550,7 +557,24 @@ function getMatrixProduct(m1, m2) {
  *
  */
 function evaluateTicTacToePosition(position) {
-    throw new Error('Not implemented');
+    let p = position;
+
+    for(let i = 0; i < p.length; i++) {
+
+        for (let j = 0; j < p.length; j++) {
+
+            if (p[i][0] === p[i][1] && p[i][2] === p[i][0] && p[i][0] !== undefined) {
+                return p[i][0];
+            }
+            if (p[0][j] === p[1][j] && p[2][j] === p[0][j] && p[0][j] !== undefined) {
+                return p[0][j];
+            }
+            if (p[1][1] === p[0][0] && p[1][1] === p[2][2] || p[1][1] === p[0][2] && p[1][1] === p[2][0]) {
+                return p[1][1];
+            }
+        }
+    }
+
 }
 
 

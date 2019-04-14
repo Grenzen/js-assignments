@@ -93,7 +93,7 @@ function getZigZagMatrix(n) {
 
 
 /**
- * Returns true if specified subset of dominoes can be placed in a row accroding to the game rules.
+ * Returns true if specified subset of dominoes can be placed in a row according to the game rules.
  * Dominoes details see at: https://en.wikipedia.org/wiki/Dominoes
  *
  * Each domino tile presented as an array [x,y] of tile value.
