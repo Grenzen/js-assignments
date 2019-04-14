@@ -2,7 +2,7 @@
 
 /********************************************************************************************
  *                                                                                          *
- * Plese read the following tutorial before implementing tasks:                             *
+ * Please read the following tutorial before implementing tasks:                             *
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators   *
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/yield        *
  *                                                                                          *
@@ -34,6 +34,26 @@
  */
 function* get99BottlesOfBeer() {
     throw new Error('Not implemented');
+//     let index = 99;
+
+//     while(true)
+//       yield index--;
+// }
+  
+    
+    // let songList = [];
+    // for (i = 99; i > 0; i--)  {
+    //     if (i > 1) {
+    //         songList.push(`${i} bottles of beer on the wall, ${i} bottles of beer.`);
+    //         songList.push(`Take one down and pass it around, ${i-1} bottles of beer on the wall.`);
+    //     } else {
+    //         songList.push(`${i} bottle of beer on the wall, ${i} bottle of beer.`);
+    //         songList.push('Take one down and pass it around, no more bottles of beer on the wall.');
+    //         songList.push('No more bottles of beer on the wall, no more bottles of beer.');
+    //         songList.push('Go to the store and buy some more, 99 bottles of beer on the wall.');
+    //     }
+    // }
+    // return songList;
 }
 
 
